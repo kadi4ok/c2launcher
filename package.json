@@ -1,9 +1,9 @@
 {
-  "name": "c2-launcher",
-  "version": "0.2.5",
-  "description": "C² launcher",
+  "name": "c3-launcher",
+  "version": "0.2.6",
+  "description": "C³ launcher",
   "main": "out/main/index.js",
-  "author": "C² contributors",
+  "author": "kadi4ok",
   "license": "MIT",
   "packageManager": "pnpm@11.5.2",
   "scripts": {

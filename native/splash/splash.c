@@ -1,7 +1,7 @@
-// C² Launcher splash stub.
+// C³ Launcher splash stub.
 //
-// This tiny exe takes the place of "C² Launcher.exe" in the install dir (the
-// real Electron binary is renamed to "C² Launcher.bin.exe" by
+// This tiny exe takes the place of "C³ Launcher.exe" in the install dir (the
+// real Electron binary is renamed to "C³ Launcher.bin.exe" by
 // scripts/afterPack.cjs). It paints a loading window within a few tens of
 // milliseconds, spawns the Electron binary, and closes once Electron's main
 // window is ready.
@@ -202,12 +202,12 @@ static COLORREF contrastOn(COLORREF c) {
 
 static void applyThemeFile(void) {
   wchar_t appData[MAX_PATH];
-  // userData is pinned to <appData>/c2launcher in src/main/index.ts; this must
+  // userData is pinned to <appData>/c3launcher in src/main/index.ts; this must
   // track it. CSIDL_APPDATA is the roaming folder, i.e. %APPDATA%.
   if (SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, appData) != S_OK) return;
 
   wchar_t path[MAX_PATH];
-  if (_snwprintf(path, MAX_PATH, L"%s\\c2launcher\\splash-theme", appData) < 0) return;
+  if (_snwprintf(path, MAX_PATH, L"%s\\c3launcher\\splash-theme", appData) < 0) return;
   path[MAX_PATH - 1] = 0;
 
   HANDLE f = CreateFileW(path, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL,
@@ -374,7 +374,7 @@ static void paint(HWND hwnd, HDC target, const RECT *rc) {
   HFONT oldFont = (HFONT)SelectObject(mem, g_fontTitle);
   SetTextColor(mem, g_colText);
   RECT titleRect = {0, 34 + LOGO_PX + 14, w, 34 + LOGO_PX + 48};
-  DrawTextW(mem, L"C² Launcher", -1, &titleRect, DT_CENTER | DT_SINGLELINE | DT_TOP);
+  DrawTextW(mem, L"C³ Launcher", -1, &titleRect, DT_CENTER | DT_SINGLELINE | DT_TOP);
 
   // Status line.
   SelectObject(mem, g_fontStatus);
@@ -517,7 +517,7 @@ static void tempPath(const wchar_t *tag, wchar_t *out, size_t cap) {
     out[0] = 0;
     return;
   }
-  _snwprintf(out, cap, L"%sc2launcher-%s-%lu.tmp", dir, tag, GetCurrentProcessId());
+  _snwprintf(out, cap, L"%sc3launcher-%s-%lu.tmp", dir, tag, GetCurrentProcessId());
   out[cap - 1] = 0;
 }
 
@@ -574,7 +574,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrev, PWSTR cmdLine, int sho
   // Second double-click while the first launch is still booting must not put
   // up a second splash. Named per-session, not global, so a second desktop
   // session is unaffected.
-  HANDLE mutex = CreateMutexW(NULL, TRUE, L"Local\\C2LauncherSplash");
+  HANDLE mutex = CreateMutexW(NULL, TRUE, L"Local\\C3LauncherSplash");
   if (mutex && GetLastError() == ERROR_ALREADY_EXISTS) return 0;
 
   wchar_t exe[MAX_PATH];
@@ -609,7 +609,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrev, PWSTR cmdLine, int sho
   wc.cbSize = sizeof(wc);
   wc.lpfnWndProc = wndProc;
   wc.hInstance = GetModuleHandleW(NULL);
-  wc.lpszClassName = L"C2LauncherSplash";
+  wc.lpszClassName = L"C3LauncherSplash";
   wc.hCursor = LoadCursorW(NULL, IDC_ARROW);
   if (!RegisterClassExW(&wc)) return 1;
 
@@ -630,7 +630,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrev, PWSTR cmdLine, int sho
   // is typing into, and must not be the window that owns the foreground when
   // Electron's real window appears.
   HWND hwnd = CreateWindowExW(WS_EX_TOPMOST | WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW,
-                              wc.lpszClassName, L"C² Launcher", WS_POPUP, x, y, SPLASH_W,
+                              wc.lpszClassName, L"C³ Launcher", WS_POPUP, x, y, SPLASH_W,
                               SPLASH_H, NULL, NULL, wc.hInstance, NULL);
   if (!hwnd) return 1;
 
@@ -652,11 +652,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrev, PWSTR cmdLine, int sho
   if (!CreateProcessW(exe, cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &startup, &procInfo)) {
     wchar_t msg[512];
     _snwprintf(msg, 512,
-               L"Could not start C² Launcher.\n\n%s\n\nError %lu. Try reinstalling the launcher.",
+               L"Could not start C³ Launcher.\n\n%s\n\nError %lu. Try reinstalling the launcher.",
                exe, GetLastError());
     msg[511] = 0;
     DestroyWindow(hwnd);
-    MessageBoxW(NULL, msg, L"C² Launcher", MB_ICONERROR | MB_OK);
+    MessageBoxW(NULL, msg, L"C³ Launcher", MB_ICONERROR | MB_OK);
     return 1;
   }
   g_child = procInfo.hProcess;

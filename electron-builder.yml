@@ -5,9 +5,9 @@
 # build/icon.png (Linux, 512×512) and build/icon.icns (macOS) and add the
 # matching `icon:` keys under win/linux/mac to brand the installers. Until
 # then electron-builder falls back to the default Electron icon.
-appId: com.c2launcher.app
-productName: C² Launcher
-copyright: Copyright © 2026 C² contributors
+appId: com.kadi4ok.c3launcher
+productName: C³ Launcher
+copyright: Copyright © 2026 C² contributors, kadi4ok
 
 directories:
   output: dist
@@ -33,7 +33,7 @@ files:
 # repository that hosts the published installers (GitHub Releases).
 publish:
   provider: github
-  owner: Shroud-y
+  owner: kadi4ok
   repo: c2launcher
   # Assets upload to a draft release; review and click Publish when ready.
   releaseType: draft
@@ -59,7 +59,7 @@ nsis:
 linux:
   icon: build/icon.png
   category: Game
-  maintainer: C² contributors
+  maintainer: kadi4ok
   target:
     - AppImage
     - deb

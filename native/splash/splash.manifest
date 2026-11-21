@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
-  <assemblyIdentity type="win32" name="C2Launcher.Splash" version="0.2.1.0" processorArchitecture="amd64"/>
-  <description>C² Launcher startup splash</description>
+  <assemblyIdentity type="win32" name="C3Launcher.Splash" version="0.2.1.0" processorArchitecture="amd64"/>
+  <description>C³ Launcher startup splash</description>
 
   <!-- asInvoker: the launcher is a per-user install and must never raise a UAC
        prompt. requestedExecutionLevel is also what stops the shell from

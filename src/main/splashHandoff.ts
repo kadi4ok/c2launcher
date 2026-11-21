@@ -88,7 +88,7 @@ export function launchedFromSplash(): boolean {
  * Two things a bare `app.relaunch()` gets wrong in a packaged build:
  *
  *  1. `process.execPath` is the renamed Electron binary
- *     ("C² Launcher.bin.exe"), so relaunching it directly skips the splash —
+ *     ("C³ Launcher.bin.exe"), so relaunching it directly skips the splash —
  *     precisely the wrong moment to skip it, since every caller here has just
  *     finished moving game data and the restart is the slow part.
  *  2. The default relaunch args are `process.argv.slice(1)`, which still carry
@@ -104,7 +104,7 @@ export function relaunchApp(): void {
   const args = process.argv.slice(1).filter((arg) => !arg.startsWith(SPLASH_FLAG_PREFIX))
 
   const exe = process.execPath
-  // "C² Launcher.bin.exe" → "C² Launcher.exe"
+  // "C³ Launcher.bin.exe" → "C³ Launcher.exe"
   const stubName = basename(exe).replace(/\.bin\.exe$/i, '.exe')
   const stub = join(dirname(exe), stubName)
 

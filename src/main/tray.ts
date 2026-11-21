@@ -30,12 +30,12 @@ export function createTray(): void {
   // the per-monitor DPI scaling from there.
   const image = nativeImage.createFromPath(icon).resize({ width: 16, height: 16 })
   tray = new Tray(image)
-  tray.setToolTip('C² Launcher')
+  tray.setToolTip('C³ Launcher')
 
   const menu = Menu.buildFromTemplate([
-    { label: 'C² Launcher', enabled: false },
+    { label: 'C³ Launcher', enabled: false },
     { type: 'separator' },
-    { label: 'Open C² Launcher', click: () => showMainWindow() },
+    { label: 'Open C³ Launcher', click: () => showMainWindow() },
     { type: 'separator' },
     { label: 'Quit', click: () => app.quit() }
   ])

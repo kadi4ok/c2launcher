@@ -9,8 +9,8 @@
 // install always uses the stub's compiled-in defaults.
 //
 // PATH IS A CONTRACT: the stub hardcodes
-// %APPDATA%\c2launcher\splash-theme, which is this path only because
-// src/main/index.ts pins userData to <appData>/c2launcher. Moving either side
+// %APPDATA%\c3launcher\splash-theme, which is this path only because
+// src/main/index.ts pins userData to <appData>/c3launcher. Moving either side
 // silently drops the stub back to its defaults — there is no error to see,
 // because a missing file is a legitimate first-run state.
 //

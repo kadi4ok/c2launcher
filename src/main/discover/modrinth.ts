@@ -26,7 +26,7 @@ import { makeCache } from './cache'
 const BASE_URL = 'https://api.modrinth.com/v2'
 
 function userAgent(): string {
-  return `Shroud-y/c2-launcher/${app.getVersion()}`
+  return `kadi4ok/c3-launcher/${app.getVersion()}`
 }
 
 async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {

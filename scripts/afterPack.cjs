@@ -1,8 +1,8 @@
 // electron-builder afterPack hook: put the native splash stub in front of the
 // Electron binary.
 //
-//   C² Launcher.exe      →  C² Launcher.bin.exe   (the real Electron binary)
-//   build/bin/splash.exe →  C² Launcher.exe       (the stub the user launches)
+//   C³ Launcher.exe      →  C³ Launcher.bin.exe   (the real Electron binary)
+//   build/bin/splash.exe →  C³ Launcher.exe       (the stub the user launches)
 //
 // Why swap rather than add a second exe: the NSIS Start Menu / desktop
 // shortcuts, the uninstaller, and electron-updater's --force-run relaunch all
@@ -24,7 +24,7 @@ exports.default = async function afterPack(context) {
   // Windows-only: the stub is a Win32 PE. Other platforms pack unchanged.
   if (context.electronPlatformName !== 'win32') return
 
-  const productFilename = context.packager.appInfo.productFilename // "C² Launcher"
+  const productFilename = context.packager.appInfo.productFilename // "C³ Launcher"
   const outDir = context.appOutDir
 
   const realExe = join(outDir, `${productFilename}.exe`)

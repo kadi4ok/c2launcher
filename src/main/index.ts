@@ -43,12 +43,12 @@ export function revealWindow(win: BrowserWindow): void {
 }
 
 // Pin the data folder to a clean, shell-friendly name. productName is
-// "C² Launcher" (kept for the installer and window title), which would
-// otherwise put userData under "~/.config/C² Launcher" — the "²" and
+// "C³ Launcher" (kept for the installer and window title), which would
+// otherwise put userData under "~/.config/C³ Launcher" — the "³" and
 // space make it awkward to cd into. This must run before anything reads
 // userData/getDataDir(), or the default path gets baked in at the old
 // location.
-app.setPath('userData', join(app.getPath('appData'), 'c2launcher'))
+app.setPath('userData', join(app.getPath('appData'), 'c3launcher'))
 
 // Single-instance: a second launch focuses the running window instead of
 // starting a rival process that would fight over the same instance folders and
@@ -129,7 +129,7 @@ if (gotInstanceLock) {
     try {
       // Windows groups taskbar entries by AppUserModelID; without it the window
       // inherits the default Electron icon instead of ours.
-      if (process.platform === 'win32') app.setAppUserModelId('com.c2launcher.app')
+      if (process.platform === 'win32') app.setAppUserModelId('com.kadi4ok.c3launcher')
 
       // Both must run before anything reads the config/registry stores or opens
       // a window: the first moves data orphaned by the v0.1.4 userData rename,

@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="build/icon.png" alt="C² Launcher" width="120" />
+  <img src="build/icon.png" alt="C³ Launcher" width="120" />
 
-  <h1>C² Launcher</h1>
+  <h1>C³ Launcher</h1>
 
   <p><em>A clean, fast open-source Minecraft launcher - browse, install and manage modpacks and content from Modrinth, all in one place without any ads.</em></p>
 
@@ -16,7 +16,7 @@
 
 ## Overview
 
-C² Launcher is a desktop Minecraft launcher built with Electron + React + TypeScript. It handles the full pipeline itself - Microsoft sign-in, downloading Minecraft, installing mod loaders and launching the game - no external launcher core required. Discover [Modrinth](https://modrinth.com) content and install modpacks, mods, resource packs, data packs and shaders in a couple of clicks.
+C³ Launcher is a fork of [C² Launcher](https://github.com/Shroud-y/c2launcher) — a desktop Minecraft launcher built with Electron + React + TypeScript. It handles the full pipeline itself - Microsoft sign-in, downloading Minecraft, installing mod loaders and launching the game - no external launcher core required. Discover [Modrinth](https://modrinth.com) content and install modpacks, mods, resource packs, data packs and shaders in a couple of clicks.
 
 <!-- Hero screenshot of the Home page -->
 <div align="center">
@@ -52,9 +52,9 @@ C² Launcher is a desktop Minecraft launcher built with Electron + React + TypeS
 
 ## Installation
 
-1. Go to the [**Releases**](https://github.com/Shroud-y/c2launcher/releases) page.
+1. Go to the [**Releases**](https://github.com/kadi4ok/c2launcher/releases) page.
 2. Download the latest installer for your OS:
-   - **Windows** - `c2-Launcher-setup-x.y.z.exe`
+   - **Windows** - `C³ Launcher Setup x.y.z.exe`
    - **Linux** - `.AppImage` or `.deb`
 3. Run it and follow the prompts.
 
@@ -70,7 +70,7 @@ Built with **Electron**, **React 18**, **TypeScript**, **Zustand** and [electron
 
 ```bash
 # clone
-git clone https://github.com/Shroud-y/c2launcher.git
+git clone https://github.com/kadi4ok/c2launcher.git
 cd c2launcher
 
 # install dependencies

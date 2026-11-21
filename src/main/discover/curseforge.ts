@@ -49,7 +49,7 @@ async function cfFetch<T>(path: string, init?: RequestInit): Promise<T> {
     headers: {
       'x-api-key': API_KEY,
       Accept: 'application/json',
-      'User-Agent': `Shroud-y/c2-launcher/${app.getVersion()}`,
+      'User-Agent': `kadi4ok/c3-launcher/${app.getVersion()}`,
       ...(init?.body !== undefined ? { 'Content-Type': 'application/json' } : {})
     }
   })

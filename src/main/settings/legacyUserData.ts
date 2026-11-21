@@ -47,7 +47,9 @@ async function moveMerge(src: string, dst: string, overwriteFile: boolean): Prom
 export async function migrateLegacyUserData(): Promise<void> {
   try {
     const newDir = app.getPath('userData')
-    const oldDir = join(app.getPath('appData'), 'C² Launcher')
+    // Fork: point at our own productName folder, never upstream's "C² Launcher",
+    // so a fresh install does not swallow the original launcher's data.
+    const oldDir = join(app.getPath('appData'), 'C³ Launcher')
     if (oldDir === newDir) return
 
     const oldHasData =
